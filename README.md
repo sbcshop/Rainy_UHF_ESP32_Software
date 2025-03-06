@@ -2,7 +2,7 @@
 
 <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/feature_banner.jpg" width="" height=""> 
 
-The Rainy UHF for ESP32 is a board with integrated ESP32 S3, Long-range high speed Rainy UHF module with couple of other components for IoT based prototyping and development. 
+Unlock the power of IoT and RFID with this ESP32-S3-based dev board, perfect for smart tracking, automation, and wireless control. With long-range UHF RFID (1-20m), a vibrant 1.14” TFT display, dual USB-C, and WiFi/BLE connectivity, it’s built for seamless real-time data processing. Whether for inventory management, access control, or interactive projects, this board delivers versatility and performance in one compact solution.
 
 This GitHub repository provides Rainy UHF for ESP32 getting started instructions.
 
@@ -45,33 +45,25 @@ This GitHub repository provides Rainy UHF for ESP32 getting started instructions
 <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/Pinouts.jpg" width="" height=""> 
 
 ### Interfacing Details
-<!--
- - _Serial Servo Bus Pins:_
-   * Servo connector having +ve[6~8.4VDC], -ve[GND] and Signal pin. 
-   * Serial Servo Signal pins breakout into UART RXD and TXD to connect with ESP32 UART pins,
-     
-     | ESP32 | Servo | Description | 
-     |---|---|---|
-     | TXD0/GPIO43 | Servo Bus RXD | UART communication pin |
-     | RXD0/GPIO44 | Servo Bus TXD | UART communication pin |
-  
-- _Display interfacing with ESP32_
-    | ESP32 | Display | Function |
-    |---|---|---|
-    | IO12 | LCD_CLK | Clock pin of SPI interface for Display|
-    | IO11 | LCD_DIN | MOSI (Master OUT Slave IN) pin of SPI interface|
-    | IO10 | LCD_CS | Chip Select pin of SPI interface|
-    | IO13 | LCD_DC| Data/Command (MISO) pin of SPI interface|
-    | IO14 | LCD_RST | Display Reset pin |
-    | IO9  | BL | Backlight of display|
-  
-- _Buttons Interfacing_
-    | ESP32 | Hardware | Function |
-    |---|---|---|
-    |IO0 | BOOT |Boot button |
-    |IO4 | BT1 | Programmable Button |
-    |IO5 | BT2 | Programmable Button |
-    |IO6 | BT3 | Programmable Button |
+
+ - _**Rainy UHF Module with ESP32**_
+   
+   | ESP32 | Rainy UHF Module | Description | 
+   |---|---|---|
+   | TXD0/GPIO43 | UHF RXD | Serial UART communication pin |
+   | RXD0/GPIO44 | UHF TXD | Serial UART communication pin |
+   | IO40        | UHF EN  | Enable pin, HIGH - activate, LOW - deactivate  |
+   
+- _**Display Interfacing with ESP32**_
+
+   | ESP32 | Display | Function |
+   |---|---|---|
+   | IO12 | LCD_CLK | Clock pin of SPI interface for Display|
+   | IO11 | LCD_DIN | MOSI (Master OUT Slave IN) pin of SPI interface|
+   | IO10 | LCD_CS | Chip Select pin of SPI interface|
+   | IO13 | LCD_DC| Data/Command (MISO) pin of SPI interface|
+   | IO14 | LCD_RST | Display Reset pin |
+   | IO9  | BL | Backlight of display|
   
  - **_SDcard Interface_**
 
@@ -84,33 +76,32 @@ This GitHub repository provides Rainy UHF for ESP32 getting started instructions
 
 - **_Buzzer, LED and Buttons Interfacing_**
 
-  | ESP32 | Hardware | Function |
-  |---|---|---| 
-  |IO0 | BOOT |Boot button |
-  |IO45 | DIN | WS2812B RGB LED|
+   | ESP32 | Hardware | Function |
+   |---|---|---| 
+   |IO0 | BOOT |Boot button |
+   |IO15 | BT1 | Programmable Button |
+   |IO16 | BT2 | Programmable Button |
+   |IO48 | Buzzer | Buzzer Positive Pin |
+   |IO3  | LED | User LED |
 
-- _GPIOs Breakout_
+- _**Breakout Pins**_
   
-  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
-  |---|---|---|
-  |DM   | I/O/T | RTC_GPIO20, GPIO20, U1CTS, ADC2_CH9, CLK_OUT1, _**USB_D+**_ |
-  |DP   | I/O/T | RTC_GPIO19, GPIO19, U1RTS, ADC2_CH8, CLK_OUT2, _**USB_D-**_ |
-  |GND  | P     | Supply Ground |
-  |5V   | P     | Positive Supply, 5V |
-  |3V3  | P     | Positive Supply, 3.3V |
-  |GP8  | I/O/T | RTC_GPIO8, _**GPIO8**_ , TOUCH8, ADC1_CH7, SUBSPICS1  |  
-
-  | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
-  |---|---|---|
-  |GP1  | I/O/T | RTC_GPIO1, _**GPIO1**_, TOUCH1, ADC1_CH0  |
-  |GP2  | I/O/T | RTC_GPIO2, _**GPIO2**_, TOUCH2, ADC1_CH1  |
-  |GP42 | I/O/T | _**MTMS**_ , GPIO42  |
-  |GP41 | I/O/T | _**MTDI**_ , GPIO41, CLK_OUT1 |
-  |GP39 | I/O/T | _**MTCK**_ , GPIO39, CLK_OUT3, SUBSPICS1 |
-  |GP38 | I/O/T | _**GPIO38**_ , FSPIWP, SUBSPIWP  |
+   | ESP32 | Type* | Multi-Function (_**Bold-Italic**_ default Function) |
+   |---|---|---|
+   |GND  | P     | Supply Ground |
+   |GP38 | I/O/T | _**GPIO38**_ , FSPIWP, SUBSPIWP  |
+   |GP39 | I/O/T | _**MTCK**_ , GPIO39, CLK_OUT3, SUBSPICS1 |
+   |GP17  | I/O/T | RTC_GPIO17, _**GPIO17**_, U1TXD, ADC2_CH6 |  
+   |GP18  | I/O/T | RTC_GPIO18, _**GPIO18**_, U1RXD, ADC2_CH7, CLK_OUT3 |
+   |GP07  | I/O/T | RTC_GPIO7, _**GPIO7**_, TOUCH7, ADC1_CH6  |
+   |GP06 | I/O/T | RTC_GPIO6, _**GPIO6**_, TOUCH6, ADC1_CH5  |
+   |GP05 | I/O/T | RTC_GPIO5, _**GPIO5**_, TOUCH5, ADC1_CH4 |
+   |GP04 | I/O/T | RTC_GPIO4, _**GPIO4**_, TOUCH4, ADC1_CH3 |
+   |5V   | P     | Positive Supply, 5V |
 
   *I-INPUT, O-OUTPUT, P-POWER & T-HIGH IMPEDENCE
--->  
+
+
 ### 1. Configure and Setup Development Environment
    - Download Arduino IDE from [official site](https://www.arduino.cc/en/software) and install into your system. We have use Arduino IDE 1.8.19
    - Once installation done will add ESP32 S3 board support into IDE, for this first you need to add below link into preference:
@@ -126,9 +117,9 @@ This GitHub repository provides Rainy UHF for ESP32 getting started instructions
 
      <img src= "https://github.com/sbcshop/3.2_Touchsy_ESP-32_Resistive_Software/blob/main/images/install_ESP32boards.gif" />
    
-   - You have two Type-C options, use ESP32_USB side to program onboard ESP32 controller. Here Native USB of ESP32 is used, so you will have to press hold BOOT button once and then connect Type C. 
+   - You have two Type-C options, use ESP32_USB side to program onboard ESP32 controller and set jumper setting on UHF-ESP. Here Native USB of ESP32 is used, so you will have to press hold BOOT button once and then connect Type C. 
 
-     <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/esp32_usb.png" width="199" height="225">   
+     <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/uhf_withESP32.png" width="381" height="286">   
    
    - When using USB native you will get COM PORT as shown in below image, and while uploading you can enable CDC Mode to visualize data on serial com port.
      
@@ -155,10 +146,18 @@ This GitHub repository provides Rainy UHF for ESP32 getting started instructions
      <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/upload_code.gif">
    - Checkout other more examples [here]() and build your own custom program codes using those references.
 
+## Rainy UHF Module with Application
+* You can use Rainy UHF module directly with application. For this change jumper setting USB-UHF mode and connect hardware to laptop/PC using Type C UHF_USB as shown below.
+  
+  <img src="https://github.com/sbcshop/Rainy_UHF_ESP32_Software/blob/main/images/UHF_withapp.png" width="506" height="353">
 
+* Now you can follow steps mentioned [here](https://github.com/sbcshop/Rainy_UHF_Breakout_Software#rainy-uhf-breakout-standalone) to use Rainy UHF module with standalone windows application.
+  
 ## Resources
   * [Schematic](https://github.com/sbcshop/Rainy_UHF_ESP32_Hardware/blob/main/Design%20Data/Rainy%20UHF%20FOR%20ESP32%20Sch.PDF)
   * [Hardware Files](https://github.com/sbcshop/Rainy_UHF_ESP32_Hardware)
+  * [Rainy UHF Module Command Manual](https://github.com/sbcshop/Rainy_UHF_Breakout_Software/blob/main/Document/Rainy%20UHF%20Module%20Command%20Manual.pdf)
+  * [CH340 Driver Installation Guide](https://github.com/sbcshop/NFC_Module/blob/main/documents/CH340%20Driver%20installation%20steps.pdf)
   * [Getting Started with ESP32 in Arduino](https://docs.espressif.com/projects/arduino-esp32/en/latest/)
   * [ESP32 S3 Hardware Reference](https://docs.espressif.com/projects/esp-idf/en/latest/esp32s3/hw-reference/index.html)
   * [ESP32 S3 Datasheet](https://github.com/sbcshop/3.2_Touchsy_ESP-32_Capacitive_Software/blob/main/documents/esp32-s3-wroom-1_wroom-1u_datasheet_en.pdf)
