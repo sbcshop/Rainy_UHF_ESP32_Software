@@ -141,10 +141,10 @@ This GitHub repository provides Rainy UHF for ESP32 getting started instructions
 
 
 ### 3. Testing First Code
-   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes]() in github which you can download and try. 
+   - At this step you are all set to test codes, for easy getting started we have provided various demo [example codes](https://github.com/sbcshop/Rainy_UHF_ESP32_Software/tree/main/examples) in github which you can download and try. 
    - Open one example code in Arduino and make sure you have selected correct board with suitable com port, click on upload button to transfer code on board.
      <img src="https://github.com/sbcshop/StackyFi_Software/blob/main/images/upload_code.gif">
-   - Checkout other more examples [here]() and build your own custom program codes using those references.
+   - Checkout other more examples [here](https://github.com/sbcshop/Rainy_UHF_ESP32_Software/tree/main/examples) and build your own custom program codes using those references.
 
 ## Rainy UHF Module with Application
 * You can use Rainy UHF module directly with application. For this change jumper setting USB-UHF mode and connect hardware to laptop/PC using Type C UHF_USB as shown below.
